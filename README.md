@@ -20,8 +20,8 @@ Brazil is the newest case of something other countries already went through. Spa
 |---|---|---|
 | 0 | Scope and decisions | done |
 | 1 | Repo setup | done |
-| 2 | Literature check | next |
-| 3 | Data collection (club list, results, squad values, transfers, financial statements) | |
+| 2 | Literature check | done, see [docs/literature.md](docs/literature.md) |
+| 3 | Data collection (club list, results, squad values, transfers, financial statements) | next |
 | 4 | One tidy club by season dataset | |
 | 5 | Brazil analysis, before and after plus difference in differences | |
 | 6 | Owner type comparison | |
