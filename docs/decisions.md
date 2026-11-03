@@ -29,3 +29,9 @@ Every choice about scope, data and method goes here with the reason behind it, s
 **Control clubs are Série A association clubs.** Cruzeiro and Botafogo converted while in Série B and went up soon after, so comparing only within the same division each season would mix the SAF effect with promotion. All SAF clubs get compared with association clubs in Série A. This replaces the "same division" rule from Phase 0. The difference in differences model compares changes, so it already allows Série B clubs to start from a lower level. What it needs is that both groups would have moved the same way without the SAF, which gets checked with the seasons before conversion.
 
 **Results on the pitch.** Two measures, points per game and one league position across both divisions (Série B 1st place counts as 21st).
+
+## Phase 2, November 2026
+
+**Debt after conversion.** The SAF law lets old debt stay with the association, so for every season after conversion the association's and the SAF's statements get added together. Reading only the SAF would make debt look like it fell even when nothing changed.
+
+**Squad value is a result.** Squad value is tracked as its own outcome next to points per game and is left out of the main model as a control, because it is the likely path from new money to better results.

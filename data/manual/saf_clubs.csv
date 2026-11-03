@@ -1,0 +1,16 @@
+club,saf_date,first_saf_season,controller_at_conversion,stake_pct,owner_type,later_owner_change,proposed_status,reason
+Cruzeiro,2021-12-06,2022,BPW Sports (Ronaldo),90,single_rich_owner,sold to Pedro Lourenço in 2024,include,
+Botafogo,2022-01-03,2022,Eagle Holding (John Textor),90,multi_club_group,,include,
+Coritiba,2022-02-10,2022,Treecorp,90,investment_firm,,include,
+Ferroviária,2022-06-02,2022,MAKES,90,to_decide,,borderline,played Série C or D before 2024 so the pre period is thin
+Bahia,2023-02-27,2023,City Football Group,90,multi_club_group,,include,
+Atlético Mineiro,2023-11-28,2024,Galo Holding (Menin family and partners),75,local_investors,,include,
+América-MG,2022-01-05,2022,association,100,no_buyer,,to_decide,SAF without an outside owner
+Novorizontino,2023-12-16,2024,association,100,no_buyer,,to_decide,SAF without an outside owner
+Fortaleza,2024-01-08,2024,association,100,no_buyer,,to_decide,SAF without an outside owner
+Atlético Goianiense,2024-06-14,2024,association,100,no_buyer,,to_decide,SAF without an outside owner
+Vasco,2022-08-16,2023,777 Partners,70,multi_club_group,association took control back in May 2024,exclude,decided in Phase 1
+Cuiabá,2021-12-13,2022,Dresch family,100,single_rich_owner,,exclude,already a company owned by the Dresch family since 2009
+Botafogo-SP,2021-12-22,2022,BFC (Trexx Holding),60,local_investors,,exclude,already a company since 2018
+Amazonas,2022,2022,three local businessmen,100,local_investors,,exclude,founded in 2019 so there is no member owned history
+Athletic Club,2021-12-21,2022,F&P Gestão Esportiva,68.5,local_investors,,exclude,refounded in 2018 so there is no member owned history
