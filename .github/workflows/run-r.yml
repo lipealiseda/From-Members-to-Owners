@@ -62,7 +62,7 @@ jobs:
             echo "commit ${GITHUB_SHA}"
             echo "started $(date -u)"
             Rscript R/00_setup.R
-            stages=$(grep -v '^#' ci_stages.txt 2>/dev/null | xargs)
+            stages=$( (grep -v '^#' ci_stages.txt 2>/dev/null || true) | xargs)
             if [ -n "$stages" ]; then Rscript run_all.R $stages; else echo "no stages listed in ci_stages.txt"; fi
             echo "finished $(date -u)"
           } 2>&1 | tee logs/last_run.log
