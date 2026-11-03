@@ -1,0 +1,2 @@
+# Stages from run_all.R that GitHub runs on the next push, separated by spaces.
+# Setup always runs first, so this can stay empty until Phase 3.

@@ -1,6 +1,6 @@
 # From members to owners
 
-What happens to a football club when its members hand it over to a company? In 2021 Brazil passed the SAF law (Lei 14.193), which lets clubs move their football into a company that investors can buy. By the end of 2025 there were about 117 SAFs, including big names like Cruzeiro, Botafogo, Vasco, Bahia and Atlético Mineiro. Clubs that stayed member owned, like Flamengo and Palmeiras, give a natural comparison.
+What happens to a football club when its members hand it over to a company? In 2021 Brazil passed the SAF law (Lei 14.193), which lets clubs move their football into a company that investors can buy. By the end of 2025 there were about 117 SAFs, including big names like Cruzeiro, Botafogo, Bahia and Atlético Mineiro. Clubs that stayed member owned, like Flamengo and Palmeiras, give a natural comparison.
 
 I want to know what these clubs actually got out of it. Did they spend to win, or did they fix their books? And does it matter who bought them?
 
@@ -51,6 +51,8 @@ docs/            decisions log, sources, data dictionary
 tests/           checks on the data and code
 ```
 
+Vasco converted in 2022 but is left out, because a court gave control back to its association in May 2024. The reason is in the decisions log.
+
 ## Reproduce it
 
 You need R 4.3 or newer.
@@ -60,6 +62,8 @@ Rscript R/00_setup.R   # installs the exact package versions with renv
 Rscript run_all.R      # every stage in order
 Rscript run_all.R --list
 ```
+
+The code also runs on GitHub Actions on every push to a branch other than main. The log of the last run is in `logs/last_run.log`.
 
 ## Licence
 

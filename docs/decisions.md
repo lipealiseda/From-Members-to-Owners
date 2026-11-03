@@ -20,8 +20,12 @@ Every choice about scope, data and method goes here with the reason behind it, s
 
 **Tools.** R with tidyverse, ggplot2, fixest, worldfootballR and pdftools. renv for package versions, Quarto for notebooks.
 
-## Open questions
+**Tools.** I have no R experience yet, so Claude writes the code and explains it. Claude's workspace cannot install R, so the R code runs on GitHub's servers through GitHub Actions (`.github/workflows/run-r.yml`). Every push to a branch other than main runs it and saves the results and a log back to the branch.
 
-1. Vasco. In May 2024 a Rio court suspended 777 Partners' control and handed the Vasco SAF back to the association. The SAF still exists on paper, but the association runs it. How to treat Vasco from 2024 on.
-2. Division matching. Cruzeiro, Botafogo and Vasco all converted while in Série B and were promoted soon after. Comparing only within the same division each season would mix the SAF effect with promotion.
-3. Results measures. Financial health has its two measures. Results on the pitch still need theirs.
+## Phase 1, November 2026
+
+**Vasco is dropped.** In May 2024 a Rio court suspended 777 Partners' control and handed the Vasco SAF back to the association, which still runs it. That leaves about one clean season as a real SAF (2023), too little to say anything. Vasco can come back as a side story.
+
+**Control clubs are Série A association clubs.** Cruzeiro and Botafogo converted while in Série B and went up soon after, so comparing only within the same division each season would mix the SAF effect with promotion. All SAF clubs get compared with association clubs in Série A. This replaces the "same division" rule from Phase 0. The difference in differences model compares changes, so it already allows Série B clubs to start from a lower level. What it needs is that both groups would have moved the same way without the SAF, which gets checked with the seasons before conversion.
+
+**Results on the pitch.** Two measures, points per game and one league position across both divisions (Série B 1st place counts as 21st).
