@@ -1,0 +1,25 @@
+# Raw downloads (scraped pages, club PDFs) stay local. The scripts rebuild them.
+data/raw/*
+data/external/*
+!data/raw/.gitkeep
+!data/external/.gitkeep
+
+# R and RStudio
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# renv keeps its own library out of git, only renv.lock is shared
+renv/library/
+renv/local/
+renv/staging/
+renv/cellar/
+renv/sandbox/
+
+# Quarto render output
+.quarto/
+notebooks/*_files/
+notebooks/*.html
+
+.DS_Store

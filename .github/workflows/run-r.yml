@@ -1,0 +1,79 @@
+# Runs the R code on GitHub's servers and saves the results back to the branch.
+#
+# How it works
+# 1. Any push to a branch other than main starts this workflow.
+# 2. It installs R and the packages in renv.lock (or creates renv.lock the
+#    first time by running R/00_setup.R).
+# 3. It runs the stages listed in ci_stages.txt with run_all.R.
+# 4. It commits renv.lock, data/processed, results, figures and the log in
+#    logs/ back to the same branch, even when a stage fails, so the error
+#    can be read from the log.
+
+name: run R
+
+on:
+  push:
+    branches-ignore: [main]
+    paths-ignore: ["logs/**", "**.md"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: run-r-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RENV_CONFIG_PAK_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: System libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev \
+            libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev \
+            libpng-dev libtiff5-dev libjpeg-dev libpoppler-cpp-dev
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: true
+
+      - name: Cache packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/R/renv
+          key: renv-${{ runner.os }}-${{ hashFiles('renv.lock') }}
+          restore-keys: renv-${{ runner.os }}-
+
+      - name: Run
+        id: run
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p logs
+          {
+            echo "commit ${GITHUB_SHA}"
+            echo "started $(date -u)"
+            Rscript R/00_setup.R
+            stages=$( (grep -v '^#' ci_stages.txt 2>/dev/null || true) | xargs)
+            if [ -n "$stages" ]; then Rscript run_all.R $stages; else echo "no stages listed in ci_stages.txt"; fi
+            echo "finished $(date -u)"
+          } 2>&1 | tee logs/last_run.log
+
+      - name: Save results to the branch
+        if: always()
+        shell: bash
+        run: |
+          echo "status ${{ steps.run.outcome }}" >> logs/last_run.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A logs renv.lock .Rprofile renv data/processed data/manual results figures 2>/dev/null || true
+          git commit -m "CI run results (${{ steps.run.outcome }})" || echo "nothing to commit"
+          git push
