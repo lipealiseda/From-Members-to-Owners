@@ -19,7 +19,7 @@ Brazil is the newest case of something other countries already went through. Spa
 | Phase | What | Status |
 |---|---|---|
 | 0 | Scope and decisions | done |
-| 1 | Repo setup | done, renv.lock still to generate |
+| 1 | Repo setup | done |
 | 2 | Literature check | next |
 | 3 | Data collection (club list, results, squad values, transfers, financial statements) | |
 | 4 | One tidy club by season dataset | |
